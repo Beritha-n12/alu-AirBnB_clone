@@ -1,7 +1,10 @@
 # console.py
+"""Module for the console."""
 import cmd
 
 class HBNBCommand(cmd.Cmd):
+    """Command interpreter for HBNB."""
+
     prompt = "(hbnb) "
 
     def do_quit(self, arg):
