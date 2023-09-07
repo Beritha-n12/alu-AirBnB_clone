@@ -3,11 +3,11 @@
 This module defines a base class for
 all models in our hbnb clone
 """
+import models
 import uuid
 from datetime import datetime
-import models
 
-class BaseModel:
+class BaseModel():
  """
     BaseModel that defines all common
     attributes/methods for other classe
