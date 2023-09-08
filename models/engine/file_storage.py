@@ -40,14 +40,19 @@ class FileStorage:
             json.dump(object_dict, file)
 
     def reload(self):
-        """
-        deserializes the JSON file to __objects (only if the JSON file
-        """
-        try:
-            with open(self.__file_path) as file:
-                serialized_content = json.load(file)
-                for item in serialized_content.values():
-                    class_name = item['__class__']
-                    self.new(eval(class_name + "(**" + str(item) + ")"))
-        except FileNotFoundError:
-            pass
+    """
+    Deserializes the JSON file to __objects (only if the JSON file exists).
+    """
+    try:
+        with open(self.__file_path) as file:
+            serialized_content = json.load(file)
+            for item in serialized_content.values():
+                class_name = item['__class__']
+                try:
+                    obj = eval(class_name + "(**" + str(item) + ")")
+                    self.new(obj)
+                except Exception as e:
+                    print(f"Error creating object of class {class_name}: {e}")
+    except FileNotFoundError:
+        print("FileNotFoundError: The file.json file does not exist.")
+
