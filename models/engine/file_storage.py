@@ -45,11 +45,12 @@ class FileStorage:
         """
         try:
             with open(FileStorage.__file_path, mode='r') as my_file:
-                serialized_content = json.load(my_file)
+                object_dict = json.load(my_file)
 
-            for key, value in serialized_content.items():
+            for key, value in object_dict.items():
                 class_name = value.get('__class__')
                 obj = eval(class_name + '(**value)')
                 FileStorage.__objects[key] = obj
+                
         except FileNotFoundError:
             pass
