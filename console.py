@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #!/usr/bin/python3
 """
 This module defines the console for the AirBnB clone project
@@ -127,4 +128,29 @@ if __name__ == '__main__':
     """
     Main function
     """
+=======
+# console.py
+"""Module for the console."""
+import cmd
+
+class HBNBCommand(cmd.Cmd):
+    """Command interpreter for HBNB."""
+
+    prompt = "(hbnb) "
+
+    def do_quit(self, arg):
+        """Quit the console."""
+        return True
+
+    def do_EOF(self, arg):
+        """EOF signal to exit the program."""
+        print("")
+        return True
+
+    def emptyline(self):
+        """Do nothing on an empty line."""
+        pass
+
+if __name__ == '__main__':
+>>>>>>> bbd1408b914b859eacf087323af47beb342c5b68
     HBNBCommand().cmdloop()

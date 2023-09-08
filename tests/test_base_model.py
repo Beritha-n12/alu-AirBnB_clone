@@ -92,6 +92,16 @@ class TestBaseModel_instantiation(unittest.TestCase):
         self.assertEqual(bm.id, "345")
         self.assertEqual(bm.created_at, dt)
         self.assertEqual(bm.updated_at, dt)
+        
+    def test_from_dict_instantiation(self):
+        # It checks if an instance can be created from a dictionary.
+        my_model = BaseModel()
+        my_model_json = my_model.to_dict()
+        new_model = BaseModel(**my_model_json)
+        self.assertIsInstance(new_model, BaseModel)
+        self.assertEqual(new_model.id, my_model.id)
+        self.assertEqual(new_model.created_at, my_model.created_at)
+        self.assertEqual(new_model.updated_at, my_model.updated_at)
 
 
 class TestBaseModel_save(unittest.TestCase):
