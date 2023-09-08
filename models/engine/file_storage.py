@@ -54,5 +54,5 @@ class FileStorage:
                 except Exception as e:
                     print(f"Error creating object of class {class_name}: {e}")
     except FileNotFoundError:
-        print("FileNotFoundError: The file.json file does not exist.")
+        pass
 
