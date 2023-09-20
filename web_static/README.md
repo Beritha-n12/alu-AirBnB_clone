@@ -1,1 +1,0 @@
-AirBnB CLONE - WEB STATIC
